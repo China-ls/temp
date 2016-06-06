@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/framework/module/authenticate/authenticate.client/authenticate.client.iml" filepath="$PROJECT_DIR$/framework/module/authenticate/authenticate.client/authenticate.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/module/authenticate/authenticate.server/authenticate.server.iml" filepath="$PROJECT_DIR$/framework/module/authenticate/authenticate.server/authenticate.server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/module/core/core.beans/core.beans.iml" filepath="$PROJECT_DIR$/framework/module/core/core.beans/core.beans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/module/core/core.protocol/core.protocol.iml" filepath="$PROJECT_DIR$/framework/module/core/core.protocol/core.protocol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/module/persistent/persistent.base/persistent.base.iml" filepath="$PROJECT_DIR$/framework/module/persistent/persistent.base/persistent.base.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/temp.iml" filepath="$PROJECT_DIR$/.idea/temp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/temp/persistent/temp-persisitent.iml" filepath="$PROJECT_DIR$/framework/temp/persistent/temp-persisitent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/temp/persistent.core/temp.persistent.core.iml" filepath="$PROJECT_DIR$/framework/temp/persistent.core/temp.persistent.core.iml" />
     </modules>
   </component>
 </project>
