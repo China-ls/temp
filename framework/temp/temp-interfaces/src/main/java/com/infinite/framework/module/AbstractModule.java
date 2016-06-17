@@ -1,6 +1,6 @@
 package com.infinite.framework.module;
 
-import com.infinite.framework.core.dto.AbstractEntity;
+import com.infinite.framework.core.entity.AbstractEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

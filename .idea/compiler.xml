@@ -22,13 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="authenticate.client" />
-        <module name="authenticate.server" />
-        <module name="core.beans" />
-        <module name="core.protocol" />
-        <module name="persistent.base" />
-        <module name="temp-persisitent" />
-        <module name="temp.persistent.core" />
+        <module name="temp-interfaces" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -38,8 +32,11 @@
       <module name="core.protocol" target="1.5" />
       <module name="framework" target="1.5" />
       <module name="persistent.base" target="1.5" />
+      <module name="temp-framework" target="1.5" />
+      <module name="temp-interfaces" target="1.5" />
       <module name="temp-persisitent" target="1.5" />
       <module name="temp.persistent.core" target="1.5" />
+      <module name="xgsn" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

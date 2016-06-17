@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="temp-framework:war">
+    <output-path>$PROJECT_DIR$/framework/temp/temp-framework/target</output-path>
+    <root id="archive" name="temp-framework-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="temp-framework:war exploded" />
+    </root>
+  </artifact>
+</component>

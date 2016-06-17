@@ -3,11 +3,27 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/framework/temp/temp-framework" />
+    <file type="web" url="file://$PROJECT_DIR$/framework/temp/temp-interfaces" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/framework/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/framework/module/authenticate/authenticate.client/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/module/authenticate/authenticate.server/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/module/core/core.beans/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/module/core/core.protocol/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/module/persistent/persistent.base/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/temp/persistent.core/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/temp/persistent/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/temp/temp-framework/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">

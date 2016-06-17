@@ -1,6 +1,6 @@
 package test.infinite.framework.module;
 
-import com.infinite.framework.core.dto.AbstractEntity;
+import com.infinite.framework.core.entity.AbstractEntity;
 import org.junit.Test;
 
 /**

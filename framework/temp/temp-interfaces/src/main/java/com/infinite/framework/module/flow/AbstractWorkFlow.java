@@ -1,6 +1,6 @@
 package com.infinite.framework.module.flow;
 
-import com.infinite.framework.core.dto.AbstractEntity;
+import com.infinite.framework.core.entity.AbstractEntity;
 import com.infinite.framework.module.AbstractModule;
 import com.infinite.framework.module.IModule;
 import org.springframework.beans.BeansException;

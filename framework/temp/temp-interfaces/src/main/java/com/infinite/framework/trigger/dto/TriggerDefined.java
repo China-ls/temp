@@ -1,6 +1,6 @@
 package com.infinite.framework.trigger.dto;
 
-import com.infinite.framework.core.dto.AbstractEntity;
+import com.infinite.framework.core.entity.AbstractEntity;
 
 /**
  * Created by hx handler 16-6-15.
