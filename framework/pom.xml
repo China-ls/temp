@@ -17,6 +17,8 @@
         <!--<module>temp/persistent.core</module>-->
         <!--<module>temp/temp-framework</module>-->
         <module>temp/temp-interfaces</module>
+        <module>temp/new-interface</module>
+        <module>temp/temp-module</module>
     </modules>
     <packaging>pom</packaging>
 

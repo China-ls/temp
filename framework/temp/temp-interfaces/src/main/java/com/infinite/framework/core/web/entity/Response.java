@@ -1,4 +1,4 @@
-package com.infinite.framework.core.web.dto;
+package com.infinite.framework.core.web.entity;
 
 import com.infinite.framework.core.entity.AbstractEntity;
 

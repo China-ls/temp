@@ -22,7 +22,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="new-interface" />
+        <module name="std-shiro" />
         <module name="temp-interfaces" />
+        <module name="temp-module" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -31,9 +34,12 @@
       <module name="core.beans" target="1.5" />
       <module name="core.protocol" target="1.5" />
       <module name="framework" target="1.5" />
+      <module name="new-interface" target="1.5" />
       <module name="persistent.base" target="1.5" />
+      <module name="std-shiro" target="1.5" />
       <module name="temp-framework" target="1.5" />
       <module name="temp-interfaces" target="1.5" />
+      <module name="temp-module" target="1.5" />
       <module name="temp-persisitent" target="1.5" />
       <module name="temp.persistent.core" target="1.5" />
       <module name="xgsn" target="1.7" />

@@ -5,11 +5,11 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- mongoDB的配置对象 -->
-    <bean id="mongoOptionsDto" class="com.infinite.framework.persistent.MongoClientOptionsDto">
+    <bean id="mongoOptionsDto" class="com.infinite.framework.core.persistent.MongoClientOptionsDto">
     </bean>
 
     <!-- 使用工厂创建mongo实例 -->
-    <bean id="mongo" class="com.infinite.framework.persistent.MongoClientFactoryBean">
+    <bean id="mongo" class="com.infinite.framework.core.persistent.MongoClientFactoryBean">
         <!-- mongoDB的配置对象 -->
         <property name="mongoClientOptionsDto" ref="mongoOptionsDto"/>
 
@@ -29,7 +29,7 @@
 
 
     <!-- 使用工厂创建morphia实例，同时完成类映射操作 -->
-    <bean id="morphia" class="com.infinite.framework.persistent.MorphiaFactoryBean">
+    <bean id="morphia" class="com.infinite.framework.core.persistent.MorphiaFactoryBean">
         <!-- 指定要扫描的POJO包路径 -->
         <property name="mapPackages">
             <array>
@@ -50,7 +50,7 @@
     </bean>
 
     <!-- 使用工厂创建datastore，同时完成index和caps的确认操作 -->
-    <bean id="datastore" class="com.infinite.framework.persistent.DatastoreFactoryBean">
+    <bean id="datastore" class="com.infinite.framework.core.persistent.DatastoreFactoryBean">
         <property name="morphia" ref="morphia"/>
         <property name="mongoClient" ref="mongo"/>
 
