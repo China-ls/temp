@@ -4,75 +4,46 @@ import org.apache.shiro.authc.HostAuthenticationToken;
 import org.apache.shiro.authc.RememberMeAuthenticationToken;
 
 public class ApplicationAuthenticationToken implements HostAuthenticationToken, RememberMeAuthenticationToken {
-    private String username;
-    private char[] password;
+    private String appkey;
     private boolean rememberMe = false;
     private String host;
 
     public ApplicationAuthenticationToken() {
     }
 
-    public ApplicationAuthenticationToken(final String username, final char[] password) {
-        this(username, password, false, null);
+    public ApplicationAuthenticationToken(final String appkey) {
+        this(appkey, false, null);
     }
 
-    public ApplicationAuthenticationToken(final String username, final String password) {
-        this(username, password != null ? password.toCharArray() : null, false, null);
+    public ApplicationAuthenticationToken(final String appkey, final String host) {
+        this(appkey, false, host);
     }
 
-    public ApplicationAuthenticationToken(final String username, final char[] password, final String host) {
-        this(username, password, false, host);
+    public ApplicationAuthenticationToken(final String appkey, final boolean rememberMe) {
+        this(appkey, rememberMe, null);
     }
 
-    public ApplicationAuthenticationToken(final String username, final String password, final String host) {
-        this(username, password != null ? password.toCharArray() : null, false, host);
-    }
-
-
-    public ApplicationAuthenticationToken(final String username, final char[] password, final boolean rememberMe) {
-        this(username, password, rememberMe, null);
-    }
-
-    public ApplicationAuthenticationToken(final String username, final String password, final boolean rememberMe) {
-        this(username, password != null ? password.toCharArray() : null, rememberMe, null);
-    }
-
-    public ApplicationAuthenticationToken(final String username, final char[] password,
+    public ApplicationAuthenticationToken(final String appkey,
                                           final boolean rememberMe, final String host) {
-
-        this.username = username;
-        this.password = password;
+        this.appkey = appkey;
         this.rememberMe = rememberMe;
         this.host = host;
     }
 
-    public ApplicationAuthenticationToken(final String username, final String password,
-                                          final boolean rememberMe, final String host) {
-        this(username, password != null ? password.toCharArray() : null, rememberMe, host);
+    public String getAppkey() {
+        return appkey;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public char[] getPassword() {
-        return password;
-    }
-
-    public void setPassword(char[] password) {
-        this.password = password;
+    public void setAppkey(String appkey) {
+        this.appkey = appkey;
     }
 
     public Object getPrincipal() {
-        return getUsername();
+        return getAppkey();
     }
 
     public Object getCredentials() {
-        return getPassword();
+        return getAppkey();
     }
 
     public String getHost() {
@@ -92,24 +63,16 @@ public class ApplicationAuthenticationToken implements HostAuthenticationToken, 
     }
 
     public void clear() {
-        this.username = null;
+        this.appkey = null;
         this.host = null;
         this.rememberMe = false;
-
-        if (this.password != null) {
-            for (int i = 0; i < password.length; i++) {
-                this.password[i] = 0x00;
-            }
-            this.password = null;
-        }
-
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getName());
         sb.append(" - ");
-        sb.append(username);
+        sb.append(appkey);
         sb.append(", rememberMe=").append(rememberMe);
         if (host != null) {
             sb.append(" (").append(host).append(")");

@@ -1,5 +1,6 @@
 package com.infinite.framework.router.controller;
 
+import com.infinite.framework.auth.authtoken.ApplicationAuthenticationToken;
 import com.infinite.framework.core.web.entity.Response;
 import com.infinite.framework.router.entity.LoginResponse;
 import com.infinite.framework.router.entity.ResponseCode;
@@ -29,7 +30,24 @@ public class LoginController extends RouterBasicRestController {
             loginResponse.setPassword(password);
             response = makeResponse(ResponseCode.SUCCESS, loginResponse);
         } catch (AuthenticationException e) {
-            logger.warn("fail use [{},{}] to login", username, password, e);
+            logger.warn("fail use [u:{},p:{}] to login", username, password, e);
+            response = makeResponse(ResponseCode.AUTH_ACCOUNT_ERROR);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/getToken", method = RequestMethod.GET)
+    public Response getToken(
+            @ModelAttribute("appkey") String appkey
+    ) {
+        Response response = null;
+        try {
+            login(new ApplicationAuthenticationToken(appkey));
+            LoginResponse loginResponse = new LoginResponse();
+            loginResponse.setAppkey(appkey);
+            response = makeResponse(ResponseCode.SUCCESS, loginResponse);
+        } catch (AuthenticationException e) {
+            logger.warn("fail use [appkey: {}] to login", appkey, e);
             response = makeResponse(ResponseCode.AUTH_ACCOUNT_ERROR);
         }
         return response;

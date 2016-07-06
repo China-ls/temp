@@ -30,10 +30,8 @@ public class ApplicationRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         // 第一步从token中取出用户发送过来的身份信息
-        String username = (String) token.getPrincipal();
-        //第二步根据用户输入的帐号从数据库查询
-        String password = username;
-        return new SimpleAuthenticationInfo(username, password, this.getName());
+        String appkey = (String) token.getPrincipal();
+        return new SimpleAuthenticationInfo(appkey, appkey, this.getName());
     }
 
     //用于授权
