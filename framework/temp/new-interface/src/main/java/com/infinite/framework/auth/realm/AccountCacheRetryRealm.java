@@ -18,6 +18,11 @@ import java.util.List;
  */
 public class AccountCacheRetryRealm extends AuthorizingRealm {
 
+    @Override
+    public boolean supports(AuthenticationToken token) {
+        return super.supports(token);
+    }
+
     //用于认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
