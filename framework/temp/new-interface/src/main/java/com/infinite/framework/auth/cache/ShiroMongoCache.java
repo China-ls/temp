@@ -2,26 +2,35 @@ package com.infinite.framework.auth.cache;
 
 import com.infinite.framework.core.constant.DbConfig;
 import com.infinite.framework.core.persistent.AbstractMongoDAO;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
+import org.bson.BsonType;
 import org.bson.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by hx on 16-7-5.
  */
 public abstract class ShiroMongoCache<K, V> extends AbstractMongoDAO implements Cache<K, V> {
-    private String dbName = DbConfig.AuthenticationInfo.DB;
-    private String collectionName = DbConfig.AuthenticationInfo.COLLECTION;
-    private String idField = DbConfig.AuthenticationInfo.ENTITY_ID_FIELD;
+    private static Logger logger = LoggerFactory.getLogger(ShiroMongoCache.class);
+
+    protected String dbName = DbConfig.AuthenticationInfo.DB;
+    protected String collectionName = DbConfig.AuthenticationInfo.COLLECTION;
+    protected String idField = DbConfig.AuthenticationInfo.ENTITY_ID_FIELD;
 
     public V get(K key) throws CacheException {
         Document document = findFirst(dbName, collectionName, Filters.eq(idField, keyToString(key)));
-        return getData(document);
+        V value = getData(document);
+        logger.debug("get from cached [key:{}, value:{}]", key, value);
+        return value;
     }
 
     public V put(K key, V value) throws CacheException {
@@ -29,25 +38,39 @@ public abstract class ShiroMongoCache<K, V> extends AbstractMongoDAO implements 
             Document document = valueToDocument(value);
             document.put(idField, key);
             insertOne(dbName, collectionName, document);
+            logger.debug("put into cached [key:{}, value:{}]", key, value);
+        } else {
+            logger.debug("will not put into cached [key:{}, value:{}]", key, value);
         }
         return value;
     }
 
     public V remove(K key) throws CacheException {
         Document document = findOneAndDelete(dbName, collectionName, Filters.eq(idField, keyToString(key)));
-        return getData(document);
+        V value = getData(document);
+        logger.debug("remove from cached [key:{}, value:{}]", key, value);
+        return value;
     }
 
     public void clear() throws CacheException {
         drop(dbName, collectionName);
+        logger.debug("clear cache {} ", collectionName);
     }
 
     public int size() {
-        return (int) count(dbName, collectionName);
+        int count = (int) count(dbName, collectionName);
+        logger.debug("size of cache is :{} ", count);
+        return count;
     }
 
     public Set<K> keys() {
-        return null;
+        MongoCursor<Document> documentCursor = find(dbName, collectionName).projection(Filters.type(idField, BsonType.STRING)).iterator();
+        Set<K> keys = new HashSet<K>();
+        while (documentCursor.hasNext()) {
+            keys.add(stringToKey(documentCursor.next().getString(idField)));
+        }
+        logger.debug("keys : {} ", keys);
+        return keys;
     }
 
     public Collection<V> values() {

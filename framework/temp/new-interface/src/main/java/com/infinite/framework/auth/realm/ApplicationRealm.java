@@ -1,6 +1,7 @@
 package com.infinite.framework.auth.realm;
 
 import com.infinite.framework.auth.authtoken.ApplicationAuthenticationToken;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -31,9 +32,12 @@ public class ApplicationRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         // 第一步从token中取出用户发送过来的身份信息
         String username = (String) token.getPrincipal();
+        if (StringUtils.isEmpty(username)) {
+            return null;
+        }
         //第二步根据用户输入的帐号从数据库查询
         String password = username;
-        return new SimpleAuthenticationInfo(username, password, this.getName());
+        return new SimpleAuthenticationInfo(username, password, "ApplicationRealm");
     }
 
     //用于授权

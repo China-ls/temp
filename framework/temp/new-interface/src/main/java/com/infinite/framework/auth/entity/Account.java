@@ -12,7 +12,7 @@ import java.util.List;
  * Created by hx on 16-7-5.
  */
 public class Account extends AbstractEntity implements ISingleRoleAccount {
-    protected Logger logger = LoggerFactory.getLogger(getName());
+    protected static Logger logger = LoggerFactory.getLogger(Account.class);
     protected ObjectId objectId;
     protected String name;
     protected String username;
@@ -102,5 +102,16 @@ public class Account extends AbstractEntity implements ISingleRoleAccount {
             return null;
         }
         return role.getPermissionMergeAllChildren();
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "objectId=" + objectId +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

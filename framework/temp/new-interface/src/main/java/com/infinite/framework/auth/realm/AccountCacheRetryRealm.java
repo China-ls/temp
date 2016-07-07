@@ -1,9 +1,7 @@
 package com.infinite.framework.auth.realm;
 
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -25,9 +23,11 @@ public class AccountCacheRetryRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         // 第一步从token中取出用户发送过来的身份信息
         String username = (String) token.getPrincipal();
-        //第二步根据用户输入的帐号从数据库查询
-        String password = username;
-        return new SimpleAuthenticationInfo(username, password, this.getName());
+        if (StringUtils.isEmpty(username)) {
+            throw new UnknownAccountException();
+        }
+        //TODO 从数据库查找用户信息
+        return new SimpleAuthenticationInfo(username, username.getBytes(), this.getName());
     }
 
     //用于授权

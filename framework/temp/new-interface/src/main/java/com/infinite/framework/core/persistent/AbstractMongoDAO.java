@@ -18,7 +18,7 @@ import java.util.List;
  * Created by hx on 16-7-4.
  */
 public class AbstractMongoDAO implements IMongoDAO {
-    protected Logger logger = LoggerFactory.getLogger(getClass());
+    private static Logger logger = LoggerFactory.getLogger(AbstractMongoDAO.class);
 
     protected MongoClient mongo;
 
@@ -449,6 +449,5 @@ public class AbstractMongoDAO implements IMongoDAO {
     public long count(String databaseName, String collectionName, Bson filter, CountOptions options) {
         return count(getDatabase(databaseName), collectionName, filter, options);
     }
-
 
 }

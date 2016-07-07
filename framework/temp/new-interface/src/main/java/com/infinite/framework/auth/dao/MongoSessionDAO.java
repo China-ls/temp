@@ -14,23 +14,25 @@ import java.util.Collection;
 public class MongoSessionDAO extends AbstractMongoDAO implements IShiroSessionDAO {
 
     public Serializable create(Session session) {
-        logger.debug(JsonUtil.toJson(session));
+        logger.debug("cretae session : " , JsonUtil.toJson(session));
         return null;
     }
 
     public Session readSession(Serializable sessionId) throws UnknownSessionException {
+        logger.debug("readSession : " , sessionId);
         return null;
     }
 
     public void update(Session session) throws UnknownSessionException {
-
+        logger.debug("update : " , session);
     }
 
     public void delete(Session session) {
-
+        logger.debug("delete : " , session);
     }
 
     public Collection<Session> getActiveSessions() {
+        logger.debug("getActiveSessions");
         return null;
     }
 }

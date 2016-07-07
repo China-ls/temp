@@ -22,7 +22,7 @@ import java.util.concurrent.Callable;
  * Created by hx on 16-7-5.
  */
 public class BasicController implements IController {
-    protected Logger logger = LoggerFactory.getLogger(getClass());
+    private static Logger logger = LoggerFactory.getLogger(BasicController.class);
 
     public Response makeResponse(String code, String message) {
         return new Response(code, message);

@@ -1,9 +1,6 @@
 package com.infinite.framework.core.util;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonSyntaxException;
+import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
@@ -11,13 +8,20 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.lang.reflect.Type;
+import java.text.DateFormat;
 
 /**
  * Created by hx on 16-7-4.
  */
 @SuppressWarnings("all")
 public abstract class JsonUtil {
-    private static Gson simpleGson = new Gson();
+    private static Gson simpleGson;
+
+    static {
+        simpleGson = new GsonBuilder()
+                .setDateFormat(DateFormat.LONG)
+                .create();
+    }
 
     public static String toJson(JsonElement jsonElement) {
         return simpleGson.toJson(jsonElement);
