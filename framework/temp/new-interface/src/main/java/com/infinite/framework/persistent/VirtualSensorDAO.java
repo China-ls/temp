@@ -1,12 +1,7 @@
 package com.infinite.framework.persistent;
 
-import com.infinite.framework.core.persistent.MorphiaDAO;
-import com.infinite.framework.entity.Application;
-import com.sun.org.apache.xpath.internal.operations.String;
-import org.mongodb.morphia.Datastore;
+import com.infinite.framework.core.persistent.IMorphiaDAO;
+import com.infinite.framework.entity.VirtualSensor;
 
-public class VirtualSensorDAO extends MorphiaDAO<Application, String> {
-    public VirtualSensorDAO(Datastore ds) {
-        super(ds);
-    }
+public interface VirtualSensorDAO extends IMorphiaDAO<VirtualSensor, String> {
 }

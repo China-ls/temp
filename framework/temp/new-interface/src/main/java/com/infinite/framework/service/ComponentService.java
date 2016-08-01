@@ -7,7 +7,7 @@ import com.infinite.framework.entity.Component;
  * @author by hx on 16-7-25.
  * @since 1.0
  */
-public interface IComponentService {
+public interface ComponentService {
 
     public Component createComponent(String sensorId, Component component);
 

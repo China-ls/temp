@@ -2,8 +2,8 @@ package com.infinite.framework.router.controller;
 
 import com.infinite.framework.core.jms.spring.mqtt.JmsMessageHandlerAdapter;
 import com.infinite.framework.core.web.BasicRestController;
-import com.infinite.framework.service.IVSensorService;
-import com.infinite.framework.service.impl.MqttService;
+import com.infinite.framework.service.VirtualSensorService;
+import com.infinite.framework.service.impl.MqttServiceImpl;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.slf4j.Logger;
@@ -28,13 +28,13 @@ public class TestController extends BasicRestController {
     private static Logger log = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
-    private MqttService mqttService;
+    private MqttServiceImpl mqttService;
     @Autowired
     @Qualifier("topicDestination")
     private Destination destination;
 
     @Autowired
-    private IVSensorService sensorService;
+    private VirtualSensorService sensorService;
 
     @RequestMapping("/test")
     @ResponseBody

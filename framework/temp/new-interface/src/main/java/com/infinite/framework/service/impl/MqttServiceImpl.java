@@ -2,7 +2,7 @@ package com.infinite.framework.service.impl;
 
 import com.infinite.framework.core.jms.spring.mqtt.JmsMessageHandler;
 import com.infinite.framework.core.jms.spring.mqtt.JmsRouterListener;
-import com.infinite.framework.service.IMqttService;
+import com.infinite.framework.service.MqttService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.jms.core.JmsTemplate;
@@ -17,13 +17,13 @@ import java.io.Serializable;
  * @author by hx on 16-7-26.
  */
 @Service("MqttService")
-public class MqttService implements IMqttService {
+public class MqttServiceImpl implements MqttService {
     @Autowired
     private JmsTemplate jmsTemplate;
     @Autowired
     private ConnectionFactory connectionFactory;
     @Autowired
-    private BeanService beanService;
+    private BeanServiceImpl beanService;
     @Autowired
     private JmsRouterListener listener;
 

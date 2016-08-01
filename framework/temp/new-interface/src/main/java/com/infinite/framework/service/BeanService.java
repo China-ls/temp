@@ -6,7 +6,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
  * @author by hx on 16-7-25.
  * @since 1.0
  */
-public interface IBeanService {
+public interface BeanService {
 
     public <T> Object getBean(String beanName);
 

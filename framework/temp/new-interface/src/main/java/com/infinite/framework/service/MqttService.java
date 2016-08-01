@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author by hx on 16-7-25.
  * @since 1.0
  */
-public interface IMqttService {
+public interface MqttService {
 
     public void createConsumer(Destination destination, JmsMessageHandler handler);
 

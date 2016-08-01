@@ -1,6 +1,6 @@
 package com.infinite.framework.service.impl;
 
-import com.infinite.framework.service.IMqService;
+import com.infinite.framework.service.MqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
@@ -15,7 +15,7 @@ import javax.jms.Session;
  * @author by hx on 16-7-26.
  */
 @Service("TestMqService")
-public class TestMqService implements IMqService {
+public class TestMqService implements MqService {
     @Autowired
     private JmsTemplate jmsTemplate;
 

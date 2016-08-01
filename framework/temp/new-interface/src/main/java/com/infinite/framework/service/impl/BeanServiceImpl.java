@@ -1,6 +1,5 @@
 package com.infinite.framework.service.impl;
 
-import com.infinite.framework.service.IBeanService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @author by hx on 16-7-26.
  */
 @Service("BeanService")
-public class BeanService implements IBeanService, ApplicationContextAware {
+public class BeanServiceImpl implements com.infinite.framework.service.BeanService, ApplicationContextAware {
     private ApplicationContext context;
 
     @Override

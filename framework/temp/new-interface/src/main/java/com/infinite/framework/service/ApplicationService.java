@@ -6,7 +6,7 @@ import com.infinite.framework.entity.Application;
  * @author by hx on 16-7-25.
  * @since 1.0
  */
-public interface IApplicationService {
+public interface ApplicationService {
 
     public Application createApplication(String name);
 

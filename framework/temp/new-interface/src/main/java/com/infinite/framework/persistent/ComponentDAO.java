@@ -1,12 +1,7 @@
 package com.infinite.framework.persistent;
 
-import com.infinite.framework.core.persistent.MorphiaDAO;
-import com.infinite.framework.entity.Application;
-import com.sun.org.apache.xpath.internal.operations.String;
-import org.mongodb.morphia.Datastore;
+import com.infinite.framework.core.persistent.IMorphiaDAO;
+import com.infinite.framework.entity.Component;
 
-public class ComponentDAO extends MorphiaDAO<Application, String> {
-    public ComponentDAO(Datastore ds) {
-        super(ds);
-    }
+public interface ComponentDAO extends IMorphiaDAO<Component, String> {
 }

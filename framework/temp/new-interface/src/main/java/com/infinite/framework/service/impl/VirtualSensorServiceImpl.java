@@ -3,7 +3,7 @@ package com.infinite.framework.service.impl;
 import com.infinite.framework.core.persistent.IMongoDAO;
 import com.infinite.framework.entity.Application;
 import com.infinite.framework.entity.VirtualSensor;
-import com.infinite.framework.service.IVSensorService;
+import com.infinite.framework.service.VirtualSensorService;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
  * @author by hx on 16-7-26.
  */
 @Service("VSensorService")
-public class VSensorService implements IVSensorService {
-    private static Logger log = LoggerFactory.getLogger(VSensorService.class);
+public class VirtualSensorServiceImpl implements VirtualSensorService {
+    private static Logger log = LoggerFactory.getLogger(VirtualSensorServiceImpl.class);
 
     @Value("#{dbConfig.vsensor_mongo_name_db}")
     private String dbName;
