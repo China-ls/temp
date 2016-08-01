@@ -50,6 +50,18 @@ public interface IMongoDAO {
 
     public MongoIterable<String> listCollectionNames(String databaseName);
 
+    public Document findFirst(String databaseName, String collectionName);
+
+    public Document findFirst(MongoDatabase database, String collectionName);
+
+    public Document findFirst(MongoCollection<Document> collection);
+
+    public Document findFirst(String databaseName, String collectionName, Bson filter);
+
+    public Document findFirst(MongoDatabase database, String collectionName, Bson filter);
+
+    public Document findFirst(MongoCollection<Document> collection, Bson filter);
+
     public FindIterable<Document> find(String databaseName, String collectionName);
 
     public FindIterable<Document> find(MongoDatabase database, String collectionName);

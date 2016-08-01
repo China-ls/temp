@@ -17,6 +17,7 @@ public class Account extends AbstractEntity implements ISingleRoleAccount {
     protected String name;
     protected String username;
     protected String password;
+    protected int passwordRetryCount;
     protected ITreeRole role;
 
     public ObjectId getObjectId() {
@@ -106,7 +107,7 @@ public class Account extends AbstractEntity implements ISingleRoleAccount {
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "AccountFN{" +
                 "objectId=" + objectId +
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +

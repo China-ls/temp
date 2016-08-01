@@ -41,13 +41,48 @@
         </property>
     </bean>
 
+    <!-- 使用工厂创建morphia实例，同时完成类映射操作 -->
+    <bean id="morphia" class="com.infinite.framework.core.persistent.MorphiaFactoryBean">
+        <!-- 指定要扫描的POJO包路径 -->
+        <property name="mapPackages">
+            <array>
+                <value>com.infinite.framework.entity.Account</value>
+                <value>com.infinite.framework.entity.Action</value>
+                <value>com.infinite.framework.entity.Application</value>
+                <value>com.infinite.framework.entity.Component</value>
+                <value>com.infinite.framework.entity.VirtualSensor</value>
+            </array>
+        </property>
+    </bean>
 
+    <!-- 使用工厂创建datastore，同时完成index和caps的确认操作 -->
+    <bean id="systemDatastore" class="com.infinite.framework.core.persistent.DatastoreFactoryBean">
+        <property name="morphia" ref="morphia"/>
+        <property name="mongoClient" ref="mongo"/>
+        <!-- collection的名称 -->
+        <property name="dbName" value="framework"/>
 
+        <!-- 用户名和密码可以为空 -->
+        <!-- <property name="username" value="my_username"/>
+        <property name="password" value="my_password"/> -->
 
-    <!--<context:component-scan base-package="com.infinite.iot.repository" />-->
+        <!-- 是否进行index和caps的确认操作，默认为flase -->
+        <property name="toEnsureIndexes" value="true"/>
+        <property name="toEnsureCaps" value="true"/>
+    </bean>
 
-    <!--<bean name="employeeDAO" class="com.infinite.iot.repository.impl.EmployeeDAOImpl">-->
-        <!--<constructor-arg name="ds" ref="datastore" />-->
-    <!--</bean>-->
+    <bean name="mongoDAO" class="com.infinite.framework.core.persistent.MongoDAO">
+        <property name="mongo" ref="mongo" />
+    </bean>
+
+    <!--<context:component-scan base-package="com.infinite.framework.persistent" />-->
+
+    <bean name="accountDAO" class="com.infinite.framework.persistent.impl.AccountDAOImpl">
+        <constructor-arg ref="systemDatastore" />
+    </bean>
+
+    <bean name="applicationDAO" class="com.infinite.framework.persistent.ApplicationDAO">
+        <constructor-arg ref="systemDatastore"/>
+    </bean>
 
 </beans>

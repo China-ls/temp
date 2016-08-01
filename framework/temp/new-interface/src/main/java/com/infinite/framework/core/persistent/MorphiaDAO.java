@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @param <T> the type of the entity
  * @param <K> the type of the key
  */
-public class MorphiaDAO<T,K> extends BasicDAO<T,K> {
-
+public class MorphiaDAO<T, K> extends BasicDAO<T, K> implements IMorphiaDAO<T,K> {
     @Autowired
     public MorphiaDAO(Datastore ds) {
         super(ds);
     }
+
 }

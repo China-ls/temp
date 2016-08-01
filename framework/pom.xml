@@ -19,6 +19,7 @@
         <module>temp/temp-interfaces</module>
         <module>temp/new-interface</module>
         <module>temp/temp-module</module>
+        <module>temp/water-app</module>
     </modules>
     <packaging>pom</packaging>
 

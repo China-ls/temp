@@ -4,7 +4,17 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/module" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/app-web" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/app-web/bak/bak" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/persistent" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/persistent.core" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/temp-framework" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/temp-interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/temp-module" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/water-app/src/main/webapp/WEB-INF/app-web/bak" />
+      <excludeFolder url="file://$MODULE_DIR$/temp/x-gsn" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

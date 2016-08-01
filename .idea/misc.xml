@@ -7,6 +7,7 @@
     <file type="web" url="file://$PROJECT_DIR$/framework/temp/new-interface" />
     <file type="web" url="file://$PROJECT_DIR$/framework/temp/temp-framework" />
     <file type="web" url="file://$PROJECT_DIR$/framework/temp/temp-interfaces" />
+    <file type="web" url="file://$PROJECT_DIR$/framework/temp/water-app" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -24,6 +25,8 @@
         <option value="$PROJECT_DIR$/framework/temp/persistent.core/pom.xml" />
         <option value="$PROJECT_DIR$/framework/temp/persistent/pom.xml" />
         <option value="$PROJECT_DIR$/framework/temp/temp-framework/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/temp/temp-interfaces/pom.xml" />
+        <option value="$PROJECT_DIR$/framework/temp/temp-module/pom.xml" />
       </set>
     </option>
   </component>

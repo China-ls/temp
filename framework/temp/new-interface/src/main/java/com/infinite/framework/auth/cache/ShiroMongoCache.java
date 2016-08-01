@@ -1,7 +1,7 @@
 package com.infinite.framework.auth.cache;
 
 import com.infinite.framework.core.constant.DbConfig;
-import com.infinite.framework.core.persistent.AbstractMongoDAO;
+import com.infinite.framework.core.persistent.MongoDAO;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 import org.apache.commons.lang.StringUtils;
@@ -19,7 +19,7 @@ import java.util.Set;
 /**
  * Created by hx on 16-7-5.
  */
-public abstract class ShiroMongoCache<K, V> extends AbstractMongoDAO implements Cache<K, V> {
+public abstract class ShiroMongoCache<K, V> extends MongoDAO implements Cache<K, V> {
     private static Logger logger = LoggerFactory.getLogger(ShiroMongoCache.class);
 
     protected String dbName = DbConfig.AuthenticationInfo.DB;

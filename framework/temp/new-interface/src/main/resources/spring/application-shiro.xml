@@ -17,7 +17,7 @@
 
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="com.infinite.framework.auth.credentials.RetryLimitHashedCredentialsMatcher">
-        <constructor-arg ref="cacheManager"/>
+        <property name="accountAuthService" ref="AccountAuthService" />
         <!--<property name="hashAlgorithmName" value="md5"/>-->
         <!--<property name="hashIterations" value="2"/>-->
         <!--<property name="storedCredentialsHexEncoded" value="true"/>-->
@@ -84,17 +84,6 @@
         </property>
     </bean>
 
-
-    <!-- 继承自AuthorizingRealm的自定义Realm,即指定Shiro验证用户登录的类为自定义的ShiroDbRealm.java -->
-    <!--<bean id="accountCacheRetryRealm" class="com.infinite.framework.auth.realm.AccountCacheRetryRealm">-->
-    <!--&lt;!&ndash;<property name="authenticationCachingEnabled" value="true" />&ndash;&gt;-->
-    <!--&lt;!&ndash;<property name="cacheManager" ref="mongoShiroCacheManager" />&ndash;&gt;-->
-    <!--</bean>-->
-    <!--<bean id="applicationRealm" class="com.infinite.framework.auth.realm.ApplicationRealm">-->
-    <!--&lt;!&ndash;<property name="authenticationCachingEnabled" value="true" />&ndash;&gt;-->
-    <!--&lt;!&ndash;<property name="cacheManager" ref="mongoShiroCacheManager" />&ndash;&gt;-->
-    <!--</bean>-->
-
     <!-- Shiro默认会使用Servlet容器的Session,可通过sessionMode属性来指定使用Shiro原生Session -->
     <!-- 即<property name="sessionMode" value="native"/>,详细说明见官方文档 -->
     <!-- 这里主要是设置自定义的单Realm应用,若有多个Realm,可使用'realms'属性代替 -->
@@ -105,15 +94,16 @@
         <property name="cacheManager" ref="cacheManager"/>
         <property name="realms">
             <list>
-                <bean id="applicationRealm" class="com.infinite.framework.auth.realm.ApplicationRealm">
-                    <property name="cachingEnabled" value="true"/>
-                    <property name="authenticationCachingEnabled" value="true"/>
-                    <property name="authenticationCacheName" value="appAuthenticationCache"/>
-                    <property name="authorizationCachingEnabled" value="true"/>
-                    <property name="authorizationCacheName" value="appAuthorizationCache"/>
-                </bean>
-                <bean id="accountCacheRetryRealm" class="com.infinite.framework.auth.realm.AccountCacheRetryRealm">
-                    <property name="credentialsMatcher" ref="credentialsMatcher"/>
+                <!--<bean id="applicationRealm" class="com.infinite.framework.auth.realm.ApplicationRealm">-->
+                    <!--<property name="cachingEnabled" value="true"/>-->
+                    <!--<property name="authenticationCachingEnabled" value="true"/>-->
+                    <!--<property name="authenticationCacheName" value="appAuthenticationCache"/>-->
+                    <!--<property name="authorizationCachingEnabled" value="true"/>-->
+                    <!--<property name="authorizationCacheName" value="appAuthorizationCache"/>-->
+                <!--</bean>-->
+                <bean id="accountCacheRetryRealm" class="com.infinite.framework.auth.realm.AccountRealm">
+                    <property name="accountAuthService" ref="AccountAuthService"/>
+                    <!--<property name="credentialsMatcher" ref="credentialsMatcher"/>-->
                     <property name="cachingEnabled" value="true"/>
                     <property name="authenticationCachingEnabled" value="true"/>
                     <property name="authenticationCacheName" value="accountAuthorizationCache"/>

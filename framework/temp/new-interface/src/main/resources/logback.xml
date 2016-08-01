@@ -34,6 +34,7 @@
     <logger name="org.springframework.orm.jpa" level="TRACE" />
     <logger name="org.apache.shiro" level="DEBUG" />
     <logger name="com.infinite" level="TRACE" />
+    <logger name="com.ls" level="TRACE" />
 
     <!-- 日志输出级别 -->
     <root level="INFO">

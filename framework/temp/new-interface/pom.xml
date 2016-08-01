@@ -14,6 +14,10 @@
     <packaging>war</packaging>
 
     <properties>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.6</maven.compiler.compilerVersion>
+
         <spring.version>4.2.5.RELEASE</spring.version>
         <shiro.version>1.2.4</shiro.version>
         <mongodb.version>1</mongodb.version>
@@ -26,11 +30,6 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.1.0.v20131115</version>
                 <configuration>
-                    <jettyXml>
-                        ${project.build.outputDirectory}/jetty.xml,
-                        ${project.build.outputDirectory}/jetty-https.xml,
-                        ${project.build.outputDirectory}/jetty-ssl.xml
-                    </jettyXml>
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
@@ -54,16 +53,28 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb.morphia</groupId>
             <artifactId>morphia</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>3.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
@@ -89,6 +100,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -191,6 +207,67 @@
             <artifactId>ehcache-core</artifactId>
             <version>2.6.6</version>
         </dependency>
+
+        <!-- mqtt -->
+        <dependency>
+            <groupId>org.fusesource.mqtt-client</groupId>
+            <artifactId>mqtt-client</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.activemq</groupId>-->
+            <!--<artifactId>activemq-all</artifactId>-->
+            <!--<version>5.13.3</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-client</artifactId>
+            <version>5.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.fusesource.hawtbuf</groupId>
+            <artifactId>hawtbuf</artifactId>
+            <version>1.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jms_1.1_spec</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-j2ee-management_1.1_spec</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.activemq</groupId>-->
+            <!--<artifactId>activemq-camel</artifactId>-->
+            <!--<version>5.13.3</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.activemq</groupId>-->
+            <!--<artifactId>activemq-spring</artifactId>-->
+            <!--<version>5.13.3</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-openwire-legacy</artifactId>
+            <version>5.13.3</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.activemq</groupId>-->
+            <!--<artifactId>activemq-jms-pool</artifactId>-->
+            <!--<version>5.13.3</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.activemq</groupId>-->
+            <!--<artifactId>activemq-mqtt</artifactId>-->
+            <!--<version>5.13.3</version>-->
+        <!--</dependency>-->
+
+
 
     </dependencies>
 

@@ -5,8 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework/temp/new-interface/new-interface.iml" filepath="$PROJECT_DIR$/framework/temp/new-interface/new-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/temp.iml" filepath="$PROJECT_DIR$/.idea/temp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/framework/temp/temp-interfaces/temp-interfaces.iml" filepath="$PROJECT_DIR$/framework/temp/temp-interfaces/temp-interfaces.iml" />
-      <module fileurl="file://$PROJECT_DIR$/framework/temp/temp-module/temp-module.iml" filepath="$PROJECT_DIR$/framework/temp/temp-module/temp-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework/temp/water-app/water-app.iml" filepath="$PROJECT_DIR$/framework/temp/water-app/water-app.iml" />
     </modules>
   </component>
 </project>
