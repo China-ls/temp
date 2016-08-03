@@ -17,5 +17,6 @@ angular.module('app', [
     'oc.lazyLoad',
     'pascalprecht.translate',
     'angularBootstrapNavTree',
-    "highcharts-ng"
+    "highcharts-ng",
+    'baiduMap'
 ]);
