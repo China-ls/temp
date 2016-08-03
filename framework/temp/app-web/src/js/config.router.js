@@ -5,8 +5,8 @@
  */
 angular.module('app')
     .run(
-        ['$rootScope', '$state', '$stateParams',
-            function ($rootScope, $state, $stateParams) {
+        ['$rootScope', '$state', '$stateParams', '$localStorage',
+            function ($rootScope, $state, $stateParams, $localStorage) {
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
             }
@@ -34,7 +34,29 @@ angular.module('app')
                         resolve: {
                             deps: ['uiLoad',
                                 function (uiLoad) {
-                                    return uiLoad.load('js/controllers/temp.js');
+                                    return uiLoad.load('js/controllers/dashbord.js');
+                                }]
+                        }
+                    })
+                    .state('app.department', {
+                        url: '/department',
+                        templateUrl: 'tpl/app_department_detail.html',
+                        params: {"branch": null},
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load('js/controllers/department.js');
+                                }]
+                        }
+                    })
+                    .state('app.device', {
+                        url: '/device',
+                        templateUrl: 'tpl/app_device_detail.html',
+                        params: {"branch": null},
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load('js/controllers/department.js');
                                 }]
                         }
                     })

@@ -5,8 +5,8 @@
  */
 angular.module('app')
     .run(
-        ['$rootScope', '$state', '$stateParams',
-            function ($rootScope, $state, $stateParams) {
+        ['$rootScope', '$state', '$stateParams', '$localStorage',
+            function ($rootScope, $state, $stateParams, $localStorage) {
                 $rootScope.$state = $state;
                 $rootScope.$stateParams = $stateParams;
             }
@@ -19,6 +19,10 @@ angular.module('app')
                 $urlRouterProvider
                     .otherwise('/app/dashboard');
                 $stateProvider
+                    .state('login', {
+                        url: '/login',
+                        templateUrl: 'tpl/login.html'
+                    })
                     .state('app', {
                         abstract: true,
                         url: '/app',
@@ -26,7 +30,35 @@ angular.module('app')
                     })
                     .state('app.dashboard', {
                         url: '/dashboard',
-                        templateUrl: 'tpl/app_dashboard.html'
+                        templateUrl: 'tpl/app_dashboard.html',
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load('js/controllers/dashbord.js');
+                                }]
+                        }
+                    })
+                    .state('app.department', {
+                        url: '/department',
+                        templateUrl: 'tpl/app_department_detail.html',
+                        params: {"branch": null},
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load('js/controllers/department.js');
+                                }]
+                        }
+                    })
+                    .state('app.device', {
+                        url: '/device',
+                        templateUrl: 'tpl/app_device_detail.html',
+                        params: {"branch": null},
+                        resolve: {
+                            deps: ['uiLoad',
+                                function (uiLoad) {
+                                    return uiLoad.load('js/controllers/department.js');
+                                }]
+                        }
                     })
                     .state('app.dashboard-v1', {
                         url: '/dashboard-v1',

@@ -8,11 +8,14 @@ angular.module('app', [
     'ngSanitize',
     'ngTouch',
     'ngStorage',
+    'toaster',
     'ui.router',
     'ui.bootstrap',
     'ui.utils',
     'ui.load',
     'ui.jq',
     'oc.lazyLoad',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'angularBootstrapNavTree',
+    "highcharts-ng"
 ]);

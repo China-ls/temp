@@ -14,6 +14,10 @@
     <packaging>war</packaging>
 
     <properties>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.6</maven.compiler.compilerVersion>
+
         <spring.version>4.2.5.RELEASE</spring.version>
         <shiro.version>1.2.4</shiro.version>
     </properties>
@@ -28,6 +32,8 @@
                     <webApp>
                         <contextPath>/app</contextPath>
                     </webApp>
+                    <scanIntervalSeconds>30000</scanIntervalSeconds>
+                    <reload>manual</reload>
                 </configuration>
             </plugin>
             <plugin>
@@ -52,6 +58,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -63,6 +70,25 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        <!-- Servlet API -->
+
+        <!-- CROS -->
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>java-property-utils</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>cors-filter</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlets</artifactId>
+            <version>9.1.0.v20131115</version>
+        </dependency>
+        <!-- CROS -->
 
         <dependency>
             <groupId>org.springframework</groupId>

@@ -4,8 +4,7 @@ import com.infinite.framework.core.entity.AbstractEntity;
 import com.infinite.framework.core.object.IDocumentable;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Property;
 
 import java.util.HashMap;
@@ -17,9 +16,11 @@ import java.util.Map;
  * @author hx on 16-7-25.
  * @since 1.0
  */
-@Entity(EntityConst.CollectionName.ACTION)
+//@Entity(EntityConst.CollectionName.ACTION)
+@Embedded
 public class Action extends AbstractEntity implements IDocumentable {
-    @Id
+//    @Id
+    @Property
     private ObjectId id;
     @Property
     private String componentId;

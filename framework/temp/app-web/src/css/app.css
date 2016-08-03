@@ -1063,6 +1063,28 @@ body {
   cursor: auto;
 }
 
+.app-header .app-header-nav .btn {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  font-size: 1.3em;
+  line-height: 20px;
+  color: #fff;
+  text-decoration: none;
+  cursor: auto;
+}
+
+.app-header .app-header-nav .btn:hover {
+  background-color: #434343;
+}
+
+.app-header .app-header-nav .btn-logout {
+  position: relative;
+  right: 10px;
+  bottom: -20px;
+  cursor: pointer;
+}
+
 .app-header .app-header-sub {
   height: 32px;
   background: inherit;
@@ -1080,6 +1102,17 @@ body {
   font-size: 1.2em;
   line-height: 20px;
   color: #000;
+}
+
+.app-header .app-header-sub .user {
+  position: relative;
+  right: 30px;
+  bottom: -5px;
+  color: #fff;
+}
+
+.app-header .app-header-sub .user .fa {
+  color: #1e983b;
 }
 
 .app-container {
@@ -3964,6 +3997,18 @@ a.text-#000000:hover {
   color: #98a6ad;
 }
 
+.cb {
+  color: #0099CC;
+}
+
+.cg {
+  color: #009933;
+}
+
+.cred {
+  color: red;
+}
+
 .pos-rlt {
   position: relative;
 }
@@ -5469,4 +5514,92 @@ a.text-#000000:hover {
   .login-wrapper .inner-bg {
     padding: 40px 0 40px 0;
   }
+}
+
+.dpt .dpt-header {
+  display: block;
+  padding: 10px 0;
+  font-size: 20px;
+  line-height: 20px;
+  background-color: #ccc;
+}
+
+.dpt .box .bd-green {
+  border-color: #009966;
+}
+
+.dpt .box .bd-blue {
+  border-color: #0066cc;
+}
+
+.dpt .box .box-header {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.dpt .box .box-header .title {
+  width: 120px;
+  margin-bottom: 0;
+}
+
+.dpt .box .box-header .bg-blue {
+  background-color: #0066cc;
+}
+
+.dpt .box .box-header .bg-green {
+  background-color: #009966;
+}
+
+.dpt .box .box-header .divider {
+  display: block;
+  width: 120px;
+  height: 4px;
+}
+
+.dpt .box .box-content {
+  padding: 10px;
+  margin: 20px 10px;
+  border: 1px dashed #ccc;
+}
+
+.dpt .box .box-content .row {
+  margin: 0;
+}
+
+.dpt .box .box-content .info {
+  padding: 0 0;
+}
+
+.dpt .box .box-content .dash-border-right {
+  border-right: 1px dashed #00ee00;
+}
+
+.dpt .box .box-content .dash-border-bottom {
+  border-bottom: 1px dashed #00ee00;
+}
+
+.dpt .box .box-content .item {
+  padding: 5px 5px;
+}
+
+.dpt .box .box-content .title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  color: #0099CC;
+  text-align: left;
+}
+
+.dpt .box .box-content .panel {
+  margin-bottom: 0;
+}
+
+.dpt .box .box-content .tb-border th,
+.dpt .box .box-content .tb-border tr,
+.dpt .box .box-content .tb-border td {
+  border: 1px solid #ccc;
+}
+
+.dpt .box .box-content .pd5 {
+  padding: 5px;
 }

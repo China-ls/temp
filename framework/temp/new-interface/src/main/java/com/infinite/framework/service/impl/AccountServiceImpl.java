@@ -11,7 +11,7 @@ import org.mongodb.morphia.query.UpdateResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("AccountAuthService")
+@Service("AccountService")
 public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountDAO accountDAO;

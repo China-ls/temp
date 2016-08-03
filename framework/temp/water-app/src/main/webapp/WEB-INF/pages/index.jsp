@@ -14,11 +14,14 @@
     <link rel="stylesheet" href="${ctx}/css/app.min.css" type="text/css"/>
 </head>
 <body ng-controller="AppCtrl">
-    <input id="_ctx" type="hidden" value="${ctx}" />
+<input id="_ctx" type="hidden" value="asdfasdf_ctx"/>
+
+<!-- toaster directive -->
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
 
 <div class="app" id="app"
-     ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}"
-     ui-view></div>
+     ui-view>
+</div>
 <!-- jQuery -->
 <script src="${ctx}/js/app.min.js"></script>
 <!-- Lazy loading -->

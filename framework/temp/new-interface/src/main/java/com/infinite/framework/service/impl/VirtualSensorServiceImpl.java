@@ -1,7 +1,7 @@
 package com.infinite.framework.service.impl;
 
-import com.infinite.framework.core.persistent.IMongoDAO;
 import com.infinite.framework.entity.VirtualSensor;
+import com.infinite.framework.persistent.VirtualSensorDAO;
 import com.infinite.framework.service.VirtualSensorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,15 +11,20 @@ import org.springframework.stereotype.Service;
 /**
  * @author by hx on 16-7-26.
  */
-@Service("VSensorService")
+@Service("VirtualSensorService")
 public class VirtualSensorServiceImpl implements VirtualSensorService {
     private static Logger log = LoggerFactory.getLogger(VirtualSensorServiceImpl.class);
 
     @Autowired
-    private IMongoDAO mongoDAO;
+    private VirtualSensorDAO virtualSensorDAO;
 
     @Override
-    public VirtualSensor createVSensor(/*String clientid,*/ String appid, VirtualSensor sensor) {
+    public VirtualSensor findById(String id) {
+        return virtualSensorDAO.findById(id);
+    }
+
+    @Override
+    public VirtualSensor createVirtualSensor(/*String clientid,*/ String appid, VirtualSensor sensor) {
 //        MongoCollection<Document> collection = mongoDAO.getCollection(dbName, collectionName);
 //        Document documentApp = mongoDAO.findFirst(collection, Filters.eq("", appid));
 //        if (null == documentApp) {
@@ -47,12 +52,12 @@ public class VirtualSensorServiceImpl implements VirtualSensorService {
     }
 
     @Override
-    public VirtualSensor updateVSensor(VirtualSensor sensor) {
+    public VirtualSensor updateVirtualSensor(VirtualSensor sensor) {
         return null;
     }
 
     @Override
-    public VirtualSensor remveVSensor(String sensorId) {
+    public VirtualSensor remveVirtualSensor(String sensorId) {
         return null;
     }
 }

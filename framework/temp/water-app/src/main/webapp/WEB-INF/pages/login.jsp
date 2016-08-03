@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="${ctx}/login" method="post" class="login-form">
+                                <form role="form" action="${ctx}/u/login" method="post" class="login-form">
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">用户名</label>
                                         <input type="text" name="form-username" placeholder="用户名..."

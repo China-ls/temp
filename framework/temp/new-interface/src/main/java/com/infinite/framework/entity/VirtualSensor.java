@@ -3,6 +3,7 @@ package com.infinite.framework.entity;
 import com.infinite.framework.core.entity.AbstractEntity;
 import com.infinite.framework.core.object.IDocumentable;
 import org.bson.Document;
+import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
@@ -34,9 +35,9 @@ public class VirtualSensor extends AbstractEntity implements IDocumentable {
     private String system;
     @Property
     private EntityConst.EntityStatus status = EntityConst.EntityStatus.NORMAL;
-
-    private ArrayList<Component> components = new ArrayList<Component>(0);
     private HashMap<String, Object> fields = new HashMap<String, Object>(0);
+    @Embedded
+    private ArrayList<Component> components = new ArrayList<Component>(0);
 
     public String getId() {
         return id;

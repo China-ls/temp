@@ -23,6 +23,10 @@ module.exports = {
             'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
             'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
             'bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
+            'bower_components/Highcharts-4.2.5/js/highcharts.js',
+            'bower_components/highcharts-ng/dist/highcharts-ng.js',
+            'bower_components/angular-bootstrap-nav-tree/dist/abn_tree_directive.js',
+            'bower_components/angularjs-toaster/toaster.js',
 
             'src/js/*.js',
             'src/js/directives/*.js',

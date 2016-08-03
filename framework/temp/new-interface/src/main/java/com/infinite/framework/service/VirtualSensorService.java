@@ -8,10 +8,11 @@ import com.infinite.framework.entity.VirtualSensor;
  */
 public interface VirtualSensorService {
 
-    public VirtualSensor createVSensor(String appkey, VirtualSensor sensor);
+    public VirtualSensor createVirtualSensor(String appkey, VirtualSensor sensor);
 
-    public VirtualSensor updateVSensor(VirtualSensor sensor);
+    public VirtualSensor updateVirtualSensor(VirtualSensor sensor);
 
-    public VirtualSensor remveVSensor(String sensorId);
+    public VirtualSensor remveVirtualSensor(String sensorId);
 
+    VirtualSensor findById(String id);
 }

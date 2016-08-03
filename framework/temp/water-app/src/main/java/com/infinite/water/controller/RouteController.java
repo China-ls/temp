@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,13 +18,23 @@ public class RouteController extends AbstractController {
     private static Logger log = LoggerFactory.getLogger(RouteController.class);
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
-        return "login.jsp";
+    public ModelAndView login() {
+        ModelAndView mav = new ModelAndView();
+//        mav.setView(new RedirectView("http://localhost:63342/app-web/src/login.html", false));
+//        return "login.jsp";
+        mav.setViewName("login.jsp");
+        return mav;
     }
 
     @RequestMapping(value = "/app", method = RequestMethod.GET)
-    public String app() {
-        return "index.jsp";
+    public ModelAndView app() {
+//        model.addAttribute("username", "admin");
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("username", "admin");
+//        mav.setView(new RedirectView("http://localhost:63342/app-web/src/index.html", false));
+        mav.setViewName("index.jsp");
+//        return "index.jsp";
+        return mav;
     }
 
     @RequestMapping(value = "/tpl/**", method = RequestMethod.GET)

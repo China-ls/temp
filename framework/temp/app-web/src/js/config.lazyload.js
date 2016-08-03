@@ -7,8 +7,20 @@ angular.module('app')
  * value: array of the css js file located
  */
     .constant('GLOBAL', {
+            API: {
+                u: 'http://localhost:8080/app/u',
+                department: 'http://localhost:8080/app/u/department',
+                sensor: 'http://localhost:8080/app/u/sensor',
+            },
             CTXA: 'aaa',
-            CTX: ''
+            CTX: '',
+            BROADCASE: {
+                EMIT: {},
+                ON: {
+                    ASIDE_CLICK_DPT : 'ASIDE_CLICK_DPT',
+                    ASIDE_CLICK_DEVICE : 'ASIDE_CLICK_DEVICE'
+                }
+            }
         }
     )
     .constant('JQ_CONFIG', {

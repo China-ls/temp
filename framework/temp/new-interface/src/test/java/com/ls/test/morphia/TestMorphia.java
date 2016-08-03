@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.HashMap;
+import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "classpath:/spring/application-context.xml",
@@ -22,6 +25,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
         "classpath:/spring/application-jms.xml",
         "classpath:/spring/application-service.xml",
         "classpath:/spring/application-shiro.xml",
+        "classpath:application-test.xml",
         "classpath:/spring/dispatcher-servlet.xml"
 })
 public class TestMorphia {
@@ -32,6 +36,9 @@ public class TestMorphia {
     private AccountDAO accountDAO;
     @Autowired
     private ApplicationDAO applicationDAO;
+
+    @Autowired
+    private VDAO vdao;
 
     @Test
     public void dropCollection() {
@@ -126,6 +133,7 @@ public class TestMorphia {
     public void getByUsername() {
         log.debug("findByUsername : {}", accountDAO.findByUsername("username"));
     }
+
     @Test
     public void testUserNameExsist() {
         log.debug("is username exsist : {}", accountDAO.isUsernameExsist("username"));
@@ -134,6 +142,26 @@ public class TestMorphia {
     @Test
     public void getUserPasswordErrorCount() {
         log.debug("findUserPasswordErrorCount : {}", accountDAO.findUserPasswordErrorCount("username"));
+    }
+
+    @Test
+    public void testVEmb() {
+        V v = new V();
+
+        HashMap<String, String> cf = new HashMap<String, String>(2);
+        cf.put("a", "ca");
+        cf.put("b", "cb");
+        C c = new C("cN", "cID", cf);
+        v.cs.add(c);
+        v.id = "vid";
+        v.name = "vname";
+        v.fields.put("a", "va");
+        v.fields.put("b", "vb");
+
+        vdao.save(v);
+
+        List<V> list = vdao.find().asList();
+        System.out.println( list );
     }
 
 }

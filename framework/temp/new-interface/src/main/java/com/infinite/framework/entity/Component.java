@@ -3,8 +3,8 @@ package com.infinite.framework.entity;
 import com.infinite.framework.core.entity.AbstractEntity;
 import com.infinite.framework.core.object.IDocumentable;
 import org.bson.Document;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Property;
 
 import java.util.ArrayList;
@@ -18,10 +18,11 @@ import java.util.Map;
  * @author hx on 16-7-25.
  * @since 1.0
  */
-@Entity(EntityConst.CollectionName.COMPONENT)
+//@Entity(EntityConst.CollectionName.COMPONENT)
+@Embedded
 public class Component extends AbstractEntity implements IDocumentable {
-    @Id
-    private String id;
+    @Property
+    private ObjectId id;
     @Property
     private String sensorId;
     @Property
@@ -30,16 +31,16 @@ public class Component extends AbstractEntity implements IDocumentable {
     private String type;
     @Property
     private EntityConst.EntityStatus status = EntityConst.EntityStatus.NORMAL;
-    @Property
+    @Embedded
     private ArrayList<Action> actions = new ArrayList<Action>(0);
 
     private HashMap<String, Object> fields = new HashMap<String, Object>(0);
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

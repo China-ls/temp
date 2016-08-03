@@ -39,7 +39,7 @@ public class TestController extends BasicRestController {
     @RequestMapping("/test")
     @ResponseBody
     public String test() {
-        sensorService.createVSensor(null, null);
+        sensorService.createVirtualSensor(null, null);
         return "test";
     }
 

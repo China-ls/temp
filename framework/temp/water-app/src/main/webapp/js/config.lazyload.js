@@ -6,6 +6,23 @@ angular.module('app')
  * key: function name of the jQuery plugin
  * value: array of the css js file located
  */
+    .constant('GLOBAL', {
+            API: {
+                u: 'http://localhost:8080/app/u',
+                department: 'http://localhost:8080/app/u/department',
+                sensor: 'http://localhost:8080/app/u/sensor',
+            },
+            CTXA: 'aaa',
+            CTX: '',
+            BROADCASE: {
+                EMIT: {},
+                ON: {
+                    ASIDE_CLICK_DPT : 'ASIDE_CLICK_DPT',
+                    ASIDE_CLICK_DEVICE : 'ASIDE_CLICK_DEVICE'
+                }
+            }
+        }
+    )
     .constant('JQ_CONFIG', {
             easyPieChart: ['../bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js'],
             sparkline: ['../bower_components/jquery.sparkline/dist/jquery.sparkline.js'],

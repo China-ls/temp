@@ -41,7 +41,7 @@
       <module name="temp-module" target="1.5" />
       <module name="temp-persisitent" target="1.5" />
       <module name="temp.persistent.core" target="1.5" />
-      <module name="water-app" target="1.5" />
+      <module name="water-app" target="1.6" />
       <module name="xgsn" target="1.7" />
     </bytecodeTargetLevel>
   </component>

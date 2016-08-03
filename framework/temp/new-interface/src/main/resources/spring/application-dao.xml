@@ -16,7 +16,7 @@
 	   http://www.springframework.org/schema/lang
 	   http://www.springframework.org/schema/lang/spring-lang.xsd">
 
-    <context:property-placeholder location="classpath*:spring/prop/mongo.properties" />
+    <context:property-placeholder location="classpath*:spring/prop/mongo.properties"/>
 
     <!-- mongoDB的配置对象 -->
     <bean id="mongoOptionsDto" class="com.infinite.framework.core.persistent.MongoClientOptionsDto">
@@ -72,16 +72,16 @@
     </bean>
 
     <bean name="mongoDAO" class="com.infinite.framework.core.persistent.MongoDAO">
-        <property name="mongo" ref="mongo" />
+        <property name="mongo" ref="mongo"/>
     </bean>
 
     <!--<context:component-scan base-package="com.infinite.framework.persistent" />-->
 
     <bean name="accountDAO" class="com.infinite.framework.persistent.impl.AccountDAOImpl">
-        <constructor-arg ref="systemDatastore" />
+        <constructor-arg ref="systemDatastore"/>
     </bean>
 
-    <bean name="applicationDAO" class="com.infinite.framework.persistent.ApplicationDAO">
+    <bean name="applicationDAO" class="com.infinite.framework.persistent.impl.ApplicationDAOImpl">
         <constructor-arg ref="systemDatastore"/>
     </bean>
 
